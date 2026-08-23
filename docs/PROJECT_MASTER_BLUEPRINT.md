@@ -4,9 +4,9 @@
 
 ## Vision
 
-A bilingual (Indonesian / English) programming education, certification, and talent
-platform that takes learners from guided lessons to verifiable certification and
-connects verified talent to employers.
+A programming education, certification, and talent platform with bilingual
+(Indonesian / English) content that takes learners from guided lessons to
+verifiable certification and connects verified talent to employers.
 
 ## Master Roadmap
 

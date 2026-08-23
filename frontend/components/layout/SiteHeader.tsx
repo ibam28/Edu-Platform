@@ -92,7 +92,7 @@ export function SiteHeader() {
             className="flex items-center gap-2 rounded-md font-semibold focus-visible:outline-none focus-visible:ring-2"
           >
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary-600 text-sm font-bold text-white">
-              B
+              L
             </span>
             <span className="hidden text-base sm:inline">{t.brand.name}</span>
           </Link>

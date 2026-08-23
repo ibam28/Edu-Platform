@@ -1,6 +1,6 @@
 # Content Guide
 
-> Status: Skeleton. Content guidelines for the bilingual platform.
+> Status: Skeleton. Content guidelines for the LearnCode platform.
 
 ## Languages
 

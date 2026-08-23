@@ -64,7 +64,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-3">
             <span className="flex items-center gap-2 font-semibold">
               <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary-600 text-sm font-bold text-white">
-                B
+                L
               </span>
               <span className="text-base">{t.brand.name}</span>
             </span>

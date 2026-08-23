@@ -1,18 +1,19 @@
 # Release Notes — Prototype v0.0.1
 
-> Bilingual Edu Platform — Prototype v0.0.1 (private staging / prototype scope).
+> LearnCode — Prototype v0.0.1 (private staging / prototype scope).
 > This is NOT a public production, certified, or accredited release.
 
 ## What This Release Is
 
-A bilingual (Indonesian / English) programming education platform prototype
-that validates the foundational architecture: guided lessons, learning
-progress, demo assessments, learner and admin dashboards, and content
-management — built on a security-hardened stack (M00–M25).
+A programming learning platform prototype that validates the foundational
+architecture: guided lessons, learning progress, demo assessments, learner
+and admin dashboards, and content management — built on a
+security-hardened stack (M00–M25). The platform is available in
+Indonesian and English.
 
 ## Features (implemented)
 
-- **Bilingual platform** — ID/EN locale routing, typed dictionaries, language
+- **Language support (ID/EN)** — locale routing, typed dictionaries, language
   switcher, home, learning path, lessons, assessments, contact, legal pages.
 - **Homepage** — professional landing page with original illustration system
   (hero, stages, journey, capabilities, decorative patterns).

@@ -1,8 +1,10 @@
-# Bilingual Programming Education, Certification & Talent Platform
+# LearnCode
 
-Prototype v0.0.1 — bilingual (Indonesian / English) programming education
-platform. M00–M24 implemented: content, auth, progress, admin, and deployment
-preparation.
+> Learn programming. Build skills. Become career-ready.
+
+LearnCode is a programming learning platform prototype — build skills
+and become career-ready. Available in Indonesian and English. Prototype v0.0.1 — M00–M25 implemented: content, auth,
+progress, admin, and deployment preparation.
 
 ## Repository Structure
 

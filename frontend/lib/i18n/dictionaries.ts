@@ -900,12 +900,12 @@ export interface Dictionary {
 export const dictionaries: Record<Locale, Dictionary> = {
   id: {
     meta: {
-      title: "Bilingual Edu Platform",
+      title: "LearnCode",
       description:
-        "Platform pendidikan, sertifikasi, dan talenta pemrograman dwibahasa.",
+        "Belajar pemrograman, membangun keterampilan, memantau perkembangan, dan siap berkarier.",
     },
     brand: {
-      name: "Bilingual Edu Platform",
+      name: "LearnCode",
     },
     skipLink: "Langsung ke konten utama",
     nav: {
@@ -931,7 +931,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     footer: {
       tagline:
-        "Platform pendidikan, sertifikasi, dan talenta pemrograman dwibahasa.",
+        "Platform belajar pemrograman untuk membangun keterampilan dan siap berkarier.",
       platformTitle: "Platform",
       learningTitle: "Belajar",
       projectTitle: "Proyek",
@@ -1009,10 +1009,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
           "Halaman ini adalah prototipe untuk validasi konsep, bukan produk final.",
       },
       hero: {
-        eyebrow: "Platform Pendidikan Teknologi",
+        eyebrow: "LearnCode",
         title: "Belajar pemrograman. Bangun keterampilan. Menuju karier.",
         description:
-          "Platform dwibahasa (Indonesia & Inggris) dengan jalur belajar terpandu, demo penilaian, dan pelacakan progres — dari pelajaran pertama hingga kesiapan karier.",
+          "Platform belajar pemrograman dengan jalur belajar terpandu, demo penilaian, dan pelacakan progres — dari pelajaran pertama hingga kesiapan karier. Tersedia dalam bahasa Indonesia dan Inggris.",
         primaryCta: "Mulai Belajar",
         secondaryCta: "Daftar Gratis",
         prototypeNote: "Prototipe v0.0.1 — validasi konsep, bukan produk final.",
@@ -1189,7 +1189,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
           "Jelas mana yang tersedia hari ini dan mana yang merupakan arah produk ke depan.",
         prototypeTitle: "Hari Ini (Prototipe)",
         prototypeItems: [
-          "Fondasi platform dwibahasa (Indonesia & Inggris).",
+          "Dukungan bahasa Indonesia & Inggris.",
           "Halaman beranda dan kerangka situs yang responsif.",
           "Jalur belajar 5 tahap sebagai pratinjau.",
           "Stage 0 gratis sebagai pintu masuk belajar.",
@@ -1226,7 +1226,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         eyebrow: "Visi Proyek",
         title: "Dari prototipe menuju platform karier pemrograman.",
         description:
-          "Platform dwibahasa (Indonesia & Inggris) yang membawa pembelajar dari pelajaran terpandu menuju sertifikasi terverifikasi, lalu menghubungkan talenta terverifikasi dengan pemberi kerja.",
+          "Platform belajar pemrograman yang membawa pembelajar dari pelajaran terpandu menuju keterampilan nyata, lalu menghubungkan dengan peluang karier. Tersedia dalam bahasa Indonesia dan Inggris.",
         primaryCta: "Lihat Jalur Belajar",
         secondaryCta: "Kembali ke Beranda",
       },
@@ -1235,7 +1235,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         description:
           "Prototipe v0.0.1 memvalidasi fondasi platform sebelum membangun produk lengkap. Yang diuji hari ini adalah fondasi teknis dan arah produk — bukan produk akhir.",
         items: [
-          "Fondasi platform dwibahasa (Indonesia & Inggris).",
+          "Dukungan bahasa Indonesia & Inggris.",
           "Kerangka situs responsif: beranda, jalur belajar, visi, dan halaman pendukung.",
           "Pratinjau jalur belajar 5 tahap (Stage 0–4).",
           "Stage 0 gratis sebagai pintu masuk belajar.",
@@ -1246,13 +1246,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
       finalVision: {
         title: "Visi Produk Final",
         description:
-          "Produk final bertujuan menjadi jalur lengkap dari pendidikan menuju pekerjaan dalam satu ekosistem dwibahasa: kursus, sertifikasi terverifikasi, portofolio, dan pasar talenta.",
+          "Produk final bertujuan menjadi jalur lengkap dari pendidikan menuju pekerjaan dalam satu ekosistem: kursus, sertifikasi terverifikasi, portofolio, dan pasar talenta. Tersedia dalam bahasa Indonesia dan Inggris.",
         futureLabel: "Masa Depan",
         pillars: [
           {
             title: "Perpustakaan Kursus Lengkap",
             description:
-              "Kursus terstruktur dan dwibahasa dari dasar hingga tingkat mahir.",
+              "Kursus terstruktur dalam dua bahasa (Indonesia & Inggris) dari dasar hingga tingkat mahir.",
           },
           {
             title: "Sertifikasi Terverifikasi",
@@ -1579,6 +1579,146 @@ export const dictionaries: Record<Locale, Dictionary> = {
               hint: "Jika muncul pesan 'command not found' atau 'tidak dikenali', periksa kembali langkah 'Add to PATH' atau minta bantuan komunitas.",
             },
           },
+          {
+            objective:
+              "Pahami fungsi `print()`, tulis string sederhana, dan jalankan program Python pertama Anda.",
+            explanation: [
+              "Program Python pertama yang paling terkenal adalah mencetak teks ke layar. Untuk itu Python menyediakan fungsi `print()`. Fungsi adalah perintah siap pakai yang melakukan tugas tertentu — dalam hal ini, menampilkan teks di layar.",
+              "Teks yang ingin ditampilkan ditulis di antara tanda kutip, misalnya `\"Hello, World!\"`. Teks semacam ini disebut string. Tanda kutip memberi tahu Python: 'ini teks, bukan perintah'.",
+              "Saat Anda menjalankan program, Python membaca kode dari atas ke bawah dan mengeksekusi setiap baris. Baris `print(\"Hello, World!\")` membuat Python menampilkan `Hello, World!` di layar. Source code adalah instruksinya; output adalah hasilnya.",
+            ],
+            example: {
+              title: "Contoh: program Hello World",
+              code: 'print("Hello, World!")',
+              explanation:
+                "Baris ini memanggil fungsi `print()` dengan satu argumen: string `\"Hello, World!\"`. Saat dijalankan, Python menampilkan teks di dalam tanda kutip tanpa tanda kutipnya.",
+            },
+            mistakes: [
+              "Menulis `Print(\"Hello, World!\")` dengan huruf kapital. Python peka huruf besar/kecil — nama fungsi harus ditulis `print`.",
+              "Melupakan tanda kutip, misalnya `print(Hello, World!)`. Python akan mengira `Hello` adalah nama variabel dan memunculkan error.",
+              "Menulis `println` atau `echo` seperti bahasa lain. Di Python, fungsi untuk mencetak adalah `print()`.",
+            ],
+            exercise: {
+              title: "Latihan: program Hello World Anda",
+              description:
+                "Buat file `hello.py`, tulis `print(\"Hello, World!\")`, lalu jalankan dengan perintah `python hello.py`. Setelah itu, ubah teksnya menjadi `print(\"Halo, dunia!\")` dan jalankan lagi. Catat kedua output yang muncul.",
+              hint: "Output program adalah teks di dalam tanda kutip, tanpa tanda kutip. Bandingkan source code dan output untuk melihat hubungannya.",
+            },
+          },
+          {
+            objective:
+              "Pahami apa itu variabel, cara menyimpan nilai ke dalamnya, dan aturan dasar penamaan variabel di Python.",
+            explanation: [
+              "Variabel adalah 'kotak' penyimpanan di memori komputer yang bisa Anda beri nama dan gunakan untuk menyimpan data. Bayangkan sebuah label yang ditempelkan pada sebuah nilai — nilai itu bisa berupa angka, teks, atau jenis data lainnya.",
+              "Di Python, membuat variabel sangat sederhana: tulis nama variabel, tanda sama dengan (`=`), lalu nilai yang ingin disimpan. `name = \"Rifav\"` menyimpan string `\"Rifav\"` ke variabel `name`, dan `age = 20` menyimpan integer `20` ke variabel `age`. Tanda `=` di sini adalah assignment — menetapkan nilai ke sebuah variabel.",
+              "Setelah nilai tersimpan, gunakan nama variabel di mana pun dalam program; Python akan menggantinya dengan nilai sebenarnya. Saat mencetak variabel dengan `print()`, yang tampil adalah nilainya — misalnya `print(name)` menampilkan `Rifav`, bukan kata `name`.",
+              "Nama variabel mengikuti aturan penamaan Python: harus diawali huruf atau garis bawah, tidak boleh diawali angka, dan hanya boleh berisi huruf, angka, dan garis bawah. Python juga peka huruf besar/kecil: `Name` dan `name` adalah dua variabel yang berbeda.",
+            ],
+            example: {
+              title: "Contoh: variabel sederhana",
+              code: 'name = "Rifav"\nage = 20\n\nprint(name)\nprint(age)\n\ncourse = "Python"\nprogress = 25\n\nprint(course)\nprint(progress)',
+              explanation:
+                "Bagian pertama membuat variabel `name` (string) dan `age` (integer), lalu mencetaknya. `name` adalah nama variabel, `\"Rifav\"` adalah string, `20` adalah integer, dan `=` adalah assignment. Bagian kedua menambah variabel `course` dan `progress`. Output program: `Rifav`, `20`, `Python`, `25` — satu nilai per baris.",
+            },
+            mistakes: [
+              "Menggunakan nama variabel yang diawali angka, misalnya `1student = \"Rifav\"`. Nama variabel harus diawali huruf atau garis bawah.",
+              "Menggunakan tanda hubung seolah-olah garis bawah, misalnya `student-name = \"Rifav\"`. Python menganggap `-` sebagai operator pengurangan, bukan bagian dari nama. Gunakan garis bawah: `student_name`.",
+              "Membedakan huruf besar/kecil secara tidak tepat: `Name = \"Rifav\"` lalu `name = \"Budi\"` membuat dua variabel yang berbeda. Python peka huruf besar/kecil.",
+              "Lupa bahwa variabel punya tipe (string, integer, dll.) meskipun Python tidak mewajibkan deklarasi eksplisit.",
+            ],
+            exercise: {
+              title: "Latihan: program data diri Anda",
+              description:
+                "Buat file `data_diri.py`, lalu simpan tiga nilai ke dalam variabel: `name` berisi nama Anda, `age` berisi umur Anda, dan `language` berisi bahasa pemrograman yang sedang Anda pelajari (misalnya \"Python\"). Cetak ketiganya dengan `print()`, lalu jalankan dan amati outputnya. Setelah itu, ganti nilainya dengan data Anda sendiri dan jalankan lagi.",
+              hint: "String diapit tanda kutip (`\"...\"`), sedangkan integer ditulis langsung tanpa tanda kutip. Contoh output: `Rifav`, `20`, `Python` — satu nilai per baris.",
+            },
+          },
+          {
+            objective:
+              "Kenali tipe data dasar Python: string, integer, float, dan boolean, serta cara memeriksa tipe dengan `type()`.",
+            explanation: [
+              "Setiap nilai di Python memiliki tipe data. Tipe menentukan jenis nilai tersebut dan operasi apa yang bisa dilakukan padanya. Empat tipe dasar yang paling sering dipakai: `string` (teks), `integer` (bilangan bulat), `float` (bilangan desimal), dan `boolean` (`True`/`False`).",
+              "String ditulis di antara tanda kutip (`\"Rifav\"`), sedangkan angka tidak memakai tanda kutip. `20` adalah integer, `170.5` adalah float. Perbedaannya: float memiliki bagian desimal, integer tidak.",
+              "Boolean hanya punya dua nilai: `True` dan `False` — dengan huruf kapital di awal. Python peka huruf besar/kecil: `true` akan memunculkan error, dan `\"True\"` (dengan tanda kutip) adalah string, bukan boolean.",
+              "Untuk memeriksa tipe sebuah nilai, gunakan fungsi `type()`: `type(20)` mengembalikan `<class 'int'>`, sedangkan `type(\"20\")` mengembalikan `<class 'str'>`.",
+            ],
+            example: {
+              title: "Contoh: tipe data dasar",
+              code: 'name = "Rifav"\nage = 20\nheight = 170.5\nis_student = True\n\nprint(name)\nprint(age)\nprint(height)\nprint(is_student)',
+              explanation:
+                "`name` menyimpan string, `age` integer, `height` float, dan `is_student` boolean. Saat dicetak, setiap variabel menampilkan nilainya. Perhatikan bahwa boolean `True` dicetak tanpa tanda kutip, dan `170.5` mempertahankan bagian desimalnya.",
+            },
+            mistakes: [
+              "Menulis angka dengan tanda kutip: `\"20\"` adalah string, bukan integer. `\"20\" + \"5\"` menghasilkan `\"205\"` (penggabungan teks), sedangkan `20 + 5` menghasilkan `25`.",
+              "Mengira `95` dan `95.0` sama. Keduanya berbeda tipe: `95` adalah integer, `95.0` adalah float — meskipun nilainya setara.",
+              "Menulis `\"True\"` dengan tanda kutip — itu string, bukan boolean. Boolean ditulis tanpa tanda kutip: `True`.",
+              "Menulis `true` dengan huruf kecil. Python peka huruf besar/kecil: yang benar adalah `True` (dan `False`).",
+            ],
+            exercise: {
+              title: "Latihan: memeriksa tipe data",
+              description:
+                "Buat file `data_tipe.py`. Simpan empat nilai ke dalam variabel: `nama` (string), `umur` (integer), `tinggi` (float), dan `pelajar` (boolean). Cetak setiap variabel dengan `print()`, lalu cetak juga hasil `type()`-nya, misalnya `print(type(nama))`. Jalankan file dan amati outputnya.",
+              hint: "`type()` mengembalikan nilai seperti `<class 'str'>` atau `<class 'int'>`. Bandingkan output `print(type(umur))` dengan `print(type(\"umur\"))` untuk melihat perbedaan string dan integer.",
+            },
+          },
+          {
+            objective:
+              "Pahami cara membuat keputusan dalam program menggunakan `if`, `elif`, dan `else`.",
+            explanation: [
+              "Program tidak selalu menjalankan baris yang sama setiap waktu. Dengan percabangan (conditionals), program bisa mengambil keputusan berdasarkan kondisi: jika suatu pernyataan benar, jalankan blok tertentu; jika tidak, jalankan blok lain.",
+              "Struktur dasarnya: `if kondisi:` diikuti blok kode yang di-indent (menjorok ke dalam). Python menggunakan indentasi untuk menentukan bagian mana yang termasuk dalam blok. Contoh: `if usia >= 17: print(\"Boleh ikut\")`.",
+              "Untuk kondisi tambahan gunakan `elif` (else if), dan untuk semua kasus lainnya gunakan `else`. Hanya satu blok yang akan dijalankan: `if` dicek pertama, lalu `elif` secara berurutan, dan `else` jika tidak ada yang cocok.",
+              "Operator perbandingan umum: `==` (sama dengan), `!=` (tidak sama), `>`, `<`, `>=`, `<=`. Hati-hati: `==` membandingkan nilai, sedangkan `=` menetapkan nilai ke variabel.",
+            ],
+            example: {
+              title: "Contoh: percabangan sederhana",
+              code: 'nilai = 85\n\nif nilai >= 75:\n    print("Lulus")\nelse:\n    print("Belum lulus")',
+              explanation:
+                "Program memeriksa apakah `nilai` lebih besar atau sama dengan 75. Karena 85 >= 75 benar, blok `if` dijalankan dan program mencetak `Lulus`. Jika nilainya di bawah 75, blok `else` yang dijalankan. Perhatikan titik dua (`:`) setelah kondisi dan indentasi pada baris `print`.",
+            },
+            mistakes: [
+              "Melupakan titik dua setelah kondisi: `if nilai > 5` tanpa `:` akan memunculkan SyntaxError.",
+              "Menggunakan `=` untuk membandingkan: `if nilai = 85` adalah kesalahan. `=` untuk assignment; `==` untuk perbandingan.",
+              "Lupa meng-indent blok kode di bawah `if` — Python mewajibkan indentasi dan akan error jika tidak ada.",
+              "Menulis `else if` alih-alih `elif`. Python menggunakan `elif` untuk kondisi tambahan.",
+            ],
+            exercise: {
+              title: "Latihan: penilaian sederhana",
+              description:
+                "Buat file `kondisi.py`. Simpan nilai ujian Anda dalam variabel `nilai`, lalu buat percabangan: jika `nilai >= 75` cetak `\"Lulus\"`, jika `nilai >= 60` cetak `\"Perlu perbaikan\"`, dan selain itu cetak `\"Belum lulus\"`. Ubah-ubah nilainya dan jalankan ulang untuk melihat hasil yang berbeda.",
+              hint: "Urutan `elif` penting: cek kondisi paling ketat lebih dulu. Coba juga menukar urutan `>= 60` dengan `>= 75` untuk melihat perbedaannya.",
+            },
+          },
+
+          {
+            objective:
+              "Pahami cara mengulang kode dengan `for` dan `while`, serta kapan menggunakan masing-masing.",
+            explanation: [
+              "Perulangan (loop) memungkinkan program menjalankan kode yang sama berkali-kali tanpa menuliskannya berulang-ulang. Python memiliki dua jenis utama: `for` dan `while`.",
+              "`for` digunakan untuk mengulang sejumlah tertentu atau melewati koleksi. `for i in range(3):` menjalankan blok sebanyak tiga kali dengan `i` bernilai 0, 1, lalu 2.",
+              "`while` digunakan selama sebuah kondisi masih benar. `while jumlah < 3:` menjalankan blok berulang kali selama `jumlah` masih kurang dari 3. Pastikan kondisi akhirnya menjadi salah — jika tidak, loop akan berjalan selamanya (infinite loop).",
+              "Fungsi `range(n)` menghasilkan urutan 0 sampai n-1. `range(mulai, selesai)` menghasilkan urutan dari `mulai` hingga `selesai - 1`.",
+            ],
+            example: {
+              title: "Contoh: perulangan for dan while",
+              code: 'for i in range(3):\n    print("Iterasi", i)\n\njumlah = 0\nwhile jumlah < 3:\n    print("Jumlah:", jumlah)\n    jumlah = jumlah + 1',
+              explanation:
+                "Bagian `for` mencetak `Iterasi 0`, `Iterasi 1`, `Iterasi 2`. Bagian `while` melakukan hal serupa: selama `jumlah` kurang dari 3, cetak nilainya lalu tambah 1. Perhatikan bahwa di dalam `while` kita mengubah `jumlah` — tanpa baris itu, loop tidak akan pernah berhenti.",
+            },
+            mistakes: [
+              "Melupakan titik dua dan indentasi di bawah `for` atau `while` — keduanya wajib.",
+              "Membuat infinite loop: `while jumlah < 3:` tanpa mengubah `jumlah` di dalam blok akan berjalan selamanya.",
+              "Mengira `range(3)` menghasilkan 1, 2, 3. Sebenarnya menghasilkan 0, 1, 2 — dimulai dari nol.",
+              "Menulis `for i = 0` seperti bahasa lain. Di Python, gunakan `for i in range(...)`.",
+            ],
+            exercise: {
+              title: "Latihan: perulangan Anda",
+              description:
+                "Buat file `perulangan.py`. Gunakan `for` untuk mencetak angka 1 sampai 5 (petunjuk: `range(1, 6)`). Lalu gunakan `while` untuk menghitung mundur dari 5 ke 1, dengan variabel yang dikurangi satu setiap iterasi.",
+              hint: "`range(1, 6)` menghasilkan 1, 2, 3, 4, 5 — nilai akhir tidak ikut. Untuk `while`, jangan lupa mengubah variabel penghitung di dalam blok agar loop berakhir.",
+            },
+          },
+
         ],
       },
       lessonDetail: {
@@ -2472,7 +2612,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         description:
           "Email proyek untuk pertanyaan umum selama fase prototipe.",
         emailLabel: "Email",
-        emailValue: "hello@bilingualedu.example",
+        emailValue: "hello@learncode.example",
         responseNote:
           "Email di atas adalah placeholder prototipe dan belum aktif.",
       },
@@ -2675,12 +2815,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
   },
   en: {
     meta: {
-      title: "Bilingual Edu Platform",
+      title: "LearnCode",
       description:
-        "Bilingual programming education, certification, and talent platform.",
+        "Learn programming, build practical skills, track your progress, and become career-ready.",
     },
     brand: {
-      name: "Bilingual Edu Platform",
+      name: "LearnCode",
     },
     skipLink: "Skip to main content",
     nav: {
@@ -2706,7 +2846,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     footer: {
       tagline:
-        "Bilingual programming education, certification, and talent platform.",
+        "A programming learning platform to build skills and become career-ready.",
       platformTitle: "Platform",
       learningTitle: "Learning",
       projectTitle: "Project",
@@ -2784,10 +2924,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
           "This page is a prototype for concept validation, not a final product.",
       },
       hero: {
-        eyebrow: "Technology Education Platform",
+        eyebrow: "LearnCode",
         title: "Learn programming. Build skills. Become career-ready.",
         description:
-          "A bilingual (Indonesian & English) platform with a guided learning path, demo assessments, and progress tracking — from your first lesson to career readiness.",
+          "A programming learning platform with a guided learning path, demo assessments, and progress tracking — from your first lesson to career readiness. Available in Indonesian and English.",
         primaryCta: "Start Learning",
         secondaryCta: "Register Free",
         prototypeNote: "Prototype v0.0.1 — concept validation, not a final product.",
@@ -2964,7 +3104,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
           "Clear about what is available today and what is the future product direction.",
         prototypeTitle: "Today (Prototype)",
         prototypeItems: [
-          "Bilingual platform foundation (Indonesian & English).",
+          "Indonesian & English language support.",
           "Responsive homepage and site framework.",
           "Five-stage learning path as a preview.",
           "Free Stage 0 as the entry point to learning.",
@@ -3001,7 +3141,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         eyebrow: "Project Vision",
         title: "From a prototype to a programming career platform.",
         description:
-          "A bilingual (Indonesian & English) platform that takes learners from guided lessons to verifiable certification, then connects verified talent to employers.",
+          "A programming learning platform that takes learners from guided lessons to verifiable skills, then connects them to career opportunities. Available in Indonesian and English.",
         primaryCta: "View Learning Path",
         secondaryCta: "Back to Home",
       },
@@ -3010,7 +3150,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         description:
           "Prototype v0.0.1 validates the platform foundation before building the full product. What is tested today is the technical foundation and product direction — not the final product.",
         items: [
-          "Bilingual platform foundation (Indonesian & English).",
+          "Indonesian & English language support.",
           "Responsive site shell: home, learning path, vision, and support pages.",
           "A 5-stage learning path preview (Stage 0–4).",
           "Free Stage 0 as the learning entry point.",
@@ -3021,13 +3161,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
       finalVision: {
         title: "Final Product Vision",
         description:
-          "The final product aims to be a complete path from education to employment in one bilingual ecosystem: courses, verifiable certification, portfolios, and a talent marketplace.",
+          "The final product aims to be a complete path from education to employment in one ecosystem: courses, verifiable certification, portfolios, and a talent marketplace. Available in Indonesian and English.",
         futureLabel: "Future",
         pillars: [
           {
             title: "Full Course Library",
             description:
-              "Structured, bilingual courses from beginner to advanced.",
+              "Structured courses in two languages (Indonesian & English) from beginner to advanced.",
           },
           {
             title: "Verifiable Certification",
@@ -3354,6 +3494,147 @@ export const dictionaries: Record<Locale, Dictionary> = {
               hint: "If you see a 'command not found' error, double-check the 'Add to PATH' step or ask the community for help.",
             },
           },
+          {
+            objective:
+              "Understand the `print()` function, write a simple string, and run your first Python program.",
+            explanation: [
+              "The most famous first Python program prints text to the screen. Python provides the `print()` function for this. A function is a ready-made command that performs a specific task — here, showing text on screen.",
+              "The text you want to display is written between quotes, for example `\"Hello, World!\"`. This kind of text is called a string. The quotes tell Python: 'this is text, not a command'.",
+              "When you run a program, Python reads the code from top to bottom and executes each line. The line `print(\"Hello, World!\")` makes Python display `Hello, World!` on screen. Source code is the instruction; the output is the result.",
+            ],
+            example: {
+              title: "Example: Hello World program",
+              code: 'print("Hello, World!")',
+              explanation:
+                "This line calls the `print()` function with one argument: the string `\"Hello, World!\"`. When run, Python displays the text inside the quotes, without the quotes.",
+            },
+            mistakes: [
+              "Writing `Print(\"Hello, World!\")` with a capital letter. Python is case-sensitive — the function name must be lowercase `print`.",
+              "Forgetting the quotes, for example `print(Hello, World!)`. Python will think `Hello` is a variable name and raise an error.",
+              "Using `println` or `echo` as in other languages. In Python, the print function is `print()`.",
+            ],
+            exercise: {
+              title: "Exercise: your Hello World program",
+              description:
+                "Create a file `hello.py`, write `print(\"Hello, World!\")`, then run it with the command `python hello.py`. After that, change the text to `print(\"Halo, dunia!\")` and run it again. Note both outputs.",
+              hint: "The output is the text inside the quotes, without the quotes. Compare the source code with the output to see how they relate.",
+            },
+          },
+          {
+            objective:
+              "Understand what variables are, how to store values in them, and the basic rules for naming variables in Python.",
+            explanation: [
+              "A variable is a storage \"box\" in the computer's memory that you can name and use to hold data. Think of it as a label attached to a value — that value could be a number, text, or another data type.",
+              "In Python, creating a variable is straightforward: write the variable name, an equals sign (`=`), and then the value you want to store. `name = \"Rifav\"` stores the string `\"Rifav\"` in the variable `name`, and `age = 20` stores the integer `20` in the variable `age`. The `=` sign here is an assignment — it assigns a value to a variable.",
+              "Once stored, you can use the variable name anywhere in your program; Python replaces it with the actual value. When you print a variable with `print()`, its value is shown — for example `print(name)` displays `Rifav`, not the word `name`.",
+              "Variable names follow Python's naming rules: they must start with a letter or underscore, cannot start with a digit, and may only contain letters, digits, and underscores. Python is also case-sensitive: `Name` and `name` are two different variables.",
+            ],
+            example: {
+              title: "Example: simple variables",
+              code: 'name = "Rifav"\nage = 20\n\nprint(name)\nprint(age)\n\ncourse = "Python"\nprogress = 25\n\nprint(course)\nprint(progress)',
+              explanation:
+                "The first part creates the variables `name` (string) and `age` (integer), then prints them. `name` is a variable name, `\"Rifav\"` is a string, `20` is an integer, and `=` is the assignment. The second part adds the `course` and `progress` variables. Program output: `Rifav`, `20`, `Python`, `25` — one value per line.",
+            },
+            mistakes: [
+              "Using a variable name that starts with a digit, for example `1student = \"Rifav\"`. Variable names must start with a letter or underscore.",
+              "Using a hyphen as if it were an underscore, for example `student-name = \"Rifav\"`. Python treats `-` as the subtraction operator, not part of a name. Use an underscore: `student_name`.",
+              "Mixing up letter case: `Name = \"Rifav\"` followed by `name = \"Budi\"` creates two different variables. Python is case-sensitive.",
+              "Forgetting that variables have types (string, integer, etc.) even though Python does not require explicit declarations.",
+            ],
+            exercise: {
+              title: "Exercise: your personal data program",
+              description:
+                "Create a file `data_diri.py`, then store three values in variables: `name` with your name, `age` with your age, and `language` with the programming language you are learning (for example \"Python\"). Print all three with `print()`, run the file, and observe the output. Then replace the values with your own data and run it again.",
+              hint: "Strings are wrapped in quotes (`\"...\"`), while integers are written directly without quotes. Example output: `Rifav`, `20`, `Python` — one value per line.",
+            },
+          },
+          {
+            objective:
+              "Learn Python's basic data types: string, integer, float, and boolean, and how to check a type with `type()`.",
+            explanation: [
+              "Every value in Python has a data type. The type determines what kind of value it is and which operations you can perform on it. The four most common basic types are: `string` (text), `integer` (whole number), `float` (decimal number), and `boolean` (`True`/`False`).",
+              "Strings are written between quotes (`\"Rifav\"`), while numbers are not. `20` is an integer, `170.5` is a float. The difference: floats have a decimal part, integers do not.",
+              "Booleans have only two values: `True` and `False` — capitalized. Python is case-sensitive: `true` raises an error, and `\"True\"` (with quotes) is a string, not a boolean.",
+              "To check a value's type, use the `type()` function: `type(20)` returns `<class 'int'>`, while `type(\"20\")` returns `<class 'str'>`.",
+            ],
+            example: {
+              title: "Example: basic data types",
+              code: 'name = "Rifav"\nage = 20\nheight = 170.5\nis_student = True\n\nprint(name)\nprint(age)\nprint(height)\nprint(is_student)',
+              explanation:
+                "`name` holds a string, `age` an integer, `height` a float, and `is_student` a boolean. When printed, each variable shows its value. Notice that the boolean `True` prints without quotes, and `170.5` keeps its decimal part.",
+            },
+            mistakes: [
+              "Writing numbers with quotes: `\"20\"` is a string, not an integer. `\"20\" + \"5\"` gives `\"205\"` (text concatenation), while `20 + 5` gives `25`.",
+              "Thinking `95` and `95.0` are the same. They have different types: `95` is an integer, `95.0` is a float — even though their values are equal.",
+              "Writing `\"True\"` with quotes — that is a string, not a boolean. Booleans are written without quotes: `True`.",
+              "Writing `true` in lowercase. Python is case-sensitive: the correct forms are `True` and `False`.",
+            ],
+            exercise: {
+              title: "Exercise: checking data types",
+              description:
+                "Create a file `data_tipe.py`. Store four values in variables: `name` (string), `age` (integer), `height` (float), and `student` (boolean). Print each variable with `print()`, then also print its `type()`, for example `print(type(name))`. Run the file and observe the output.",
+              hint: "`type()` returns values like `<class 'str'>` or `<class 'int'>`. Compare `print(type(age))` with `print(type(\"age\"))` to see the difference between an integer and a string.",
+            },
+          },
+
+          {
+            objective:
+              "Understand how to make decisions in a program using `if`, `elif`, and `else`.",
+            explanation: [
+              "Programs do not always run the same lines every time. With conditionals, a program can make decisions based on conditions: if a statement is true, run one block; otherwise, run another.",
+              "The basic structure is `if condition:` followed by an indented block of code. Python uses indentation to determine which lines belong to a block. For example: `if age >= 17: print(\"Allowed\")`.",
+              "Use `elif` (else if) for additional conditions, and `else` for everything else. Only one block runs: `if` is checked first, then `elif` in order, and `else` if nothing matches.",
+              "Common comparison operators: `==` (equal), `!=` (not equal), `>`, `<`, `>=`, `<=`. Be careful: `==` compares values, while `=` assigns a value to a variable.",
+            ],
+            example: {
+              title: "Example: a simple conditional",
+              code: 'score = 85\n\nif score >= 75:\n    print("Pass")\nelse:\n    print("Not passed")',
+              explanation:
+                "The program checks whether `score` is greater than or equal to 75. Since 85 >= 75 is true, the `if` block runs and the program prints `Pass`. If the score were below 75, the `else` block would run. Note the colon (`:`) after the condition and the indentation of the `print` lines.",
+            },
+            mistakes: [
+              "Forgetting the colon after the condition: `if score > 5` without `:` raises a SyntaxError.",
+              "Using `=` for comparison: `if score = 85` is wrong. `=` is for assignment; `==` is for comparison.",
+              "Forgetting to indent the block below `if` — Python requires indentation and will error without it.",
+              "Writing `else if` instead of `elif`. Python uses `elif` for additional conditions.",
+            ],
+            exercise: {
+              title: "Exercise: a simple grading program",
+              description:
+                "Create a file `kondisi.py`. Store your exam score in a variable `score`, then write a conditional: if `score >= 75` print `\"Pass\"`, if `score >= 60` print `\"Needs improvement\"`, and otherwise print `\"Not passed\"`. Change the value and run it again to see different results.",
+              hint: "The order of `elif` matters: check the strictest condition first. Try swapping `>= 60` with `>= 75` to see the difference.",
+            },
+          },
+
+          {
+            objective:
+              "Understand how to repeat code with `for` and `while`, and when to use each.",
+            explanation: [
+              "A loop lets a program run the same code many times without writing it over and over. Python has two main kinds: `for` and `while`.",
+              "`for` is used to repeat a fixed number of times or to go through a collection. `for i in range(3):` runs the block three times, with `i` equal to 0, 1, then 2.",
+              "`while` runs as long as a condition is true. `while count < 3:` keeps running the block while `count` is still less than 3. Make sure the condition eventually becomes false — otherwise the loop runs forever (infinite loop).",
+              "The `range(n)` function produces the sequence 0 to n-1. `range(start, end)` produces the sequence from `start` to `end - 1`.",
+            ],
+            example: {
+              title: "Example: for and while loops",
+              code: 'for i in range(3):\n    print("Iteration", i)\n\ncount = 0\nwhile count < 3:\n    print("Count:", count)\n    count = count + 1',
+              explanation:
+                "The `for` part prints `Iteration 0`, `Iteration 1`, `Iteration 2`. The `while` part does something similar: while `count` is less than 3, print its value then add 1. Notice that we change `count` inside the loop — without that line, the loop would never stop.",
+            },
+            mistakes: [
+              "Forgetting the colon and the indentation under `for` or `while` — both are required.",
+              "Creating an infinite loop: `while count < 3:` without changing `count` inside the block runs forever.",
+              "Thinking `range(3)` produces 1, 2, 3. It actually produces 0, 1, 2 — it starts at zero.",
+              "Writing `for i = 0` as in other languages. In Python, use `for i in range(...)`.",
+            ],
+            exercise: {
+              title: "Exercise: your loops",
+              description:
+                "Create a file `perulangan.py`. Use `for` to print the numbers 1 to 5 (hint: `range(1, 6)`). Then use `while` to count down from 5 to 1, decreasing the counter variable by one each iteration.",
+              hint: "`range(1, 6)` produces 1, 2, 3, 4, 5 — the end value is not included. For `while`, remember to change the counter inside the block so the loop ends.",
+            },
+          },
+
         ],
       },
       lessonDetail: {
@@ -4245,7 +4526,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         description:
           "Project email for general questions during the prototype phase.",
         emailLabel: "Email",
-        emailValue: "hello@bilingualedu.example",
+        emailValue: "hello@learncode.example",
         responseNote:
           "The email above is a prototype placeholder and is not active yet.",
       },

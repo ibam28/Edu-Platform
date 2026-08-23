@@ -29,7 +29,7 @@ async def lifespan(_: FastAPI):
 app = FastAPI(
     title=settings.app_name,
     version=settings.app_version,
-    description="Bilingual Programming Education, Certification & Talent Platform",
+    description="LearnCode — Learn programming. Build skills. Become career-ready.",
     lifespan=lifespan,
 )
 

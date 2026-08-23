@@ -12,7 +12,7 @@ AUTH_SECRET_MIN_LENGTH = 32
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
-    app_name: str = "bilingual-edu-platform"
+    app_name: str = "LearnCode"
     app_version: str = "0.0.1"
     environment: str = "development"
     api_v1_prefix: str = "/api"

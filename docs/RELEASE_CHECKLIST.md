@@ -1,6 +1,6 @@
 # Release Checklist — Prototype v0.0.1
 
-> Status: Release gate checklist for Bilingual Edu Platform **Prototype v0.0.1**
+> Status: Release gate checklist for LearnCode **Prototype v0.0.1**
 > (private staging / prototype scope). This is NOT a public production release.
 
 ## 1. Prototype Purpose

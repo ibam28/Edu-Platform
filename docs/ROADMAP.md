@@ -1,4 +1,4 @@
-# ROADMAP — Bilingual Programming Education, Certification & Talent Platform
+# ROADMAP — LearnCode (Programming Education, Certification & Talent Platform)
 
 **Current Version:** 0.0.1  
 **Project Phase:** Prototype  
@@ -23,7 +23,7 @@ When there is a conflict, those source-of-truth documents take precedence.
 
 ## 2. Product Direction
 
-The long-term product is a bilingual programming education, certification, talent, and recruitment platform.
+The long-term product is a programming education, certification, talent, and recruitment platform with bilingual (Indonesian / English) content.
 
 Core journey:
 
