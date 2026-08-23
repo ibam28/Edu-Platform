@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocaleProvider } from "@/components/locale/LocaleProvider";
+import { AuthProvider } from "@/components/auth/AuthProvider";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -39,12 +40,14 @@ export default async function LocaleLayout({
 
   return (
     <LocaleProvider locale={locale}>
-      <SkipLink />
-      <SiteHeader />
-      <main id="main-content" className="flex flex-1 flex-col">
-        {children}
-      </main>
-      <SiteFooter />
+      <AuthProvider>
+        <SkipLink />
+        <SiteHeader />
+        <main id="main-content" className="flex flex-1 flex-col">
+          {children}
+        </main>
+        <SiteFooter />
+      </AuthProvider>
     </LocaleProvider>
   );
 }

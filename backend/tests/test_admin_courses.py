@@ -92,9 +92,9 @@ def unique_email():
 
 def register_and_login(client):
     email = unique_email()
-    client.post("/api/auth/register", json={"email": email, "password": "secret-pass-1234"})
+    client.post("/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": "secret-pass-1234"})
     response = client.post(
-        "/api/auth/login", json={"email": email, "password": "secret-pass-1234"}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": "secret-pass-1234"}
     )
     return response.json()["access_token"], email
 

@@ -66,7 +66,7 @@ def admin_token(client):
 
     response = client.post(
         "/api/auth/register",
-        json={"email": "admin@example.com", "password": "secret-pass-1234"},
+        json={"email": "admin@example.com", "display_name": "Test Learner", "password": "secret-pass-1234"},
     )
     assert response.status_code == 201
     with TestingSessionLocal() as db:
@@ -78,7 +78,7 @@ def admin_token(client):
         db.commit()
     response = client.post(
         "/api/auth/login",
-        json={"email": "admin@example.com", "password": "secret-pass-1234"},
+        json={"email": "admin@example.com", "display_name": "Test Learner", "password": "secret-pass-1234"},
     )
     assert response.status_code == 200
     return response.json()["access_token"]

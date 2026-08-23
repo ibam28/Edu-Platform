@@ -47,6 +47,7 @@ def _reject_if_throttled(*allowed: bool) -> None:
 
 class RegisterRequest(BaseModel):
     email: str
+    display_name: str
     password: str
 
     @field_validator("email")
@@ -56,6 +57,18 @@ class RegisterRequest(BaseModel):
         if not re.match(EMAIL_PATTERN, email):
             raise ValueError("invalid email format")
         return email
+
+    @field_validator("display_name")
+    @classmethod
+    def validate_display_name(cls, value: str) -> str:
+        name = value.strip()
+        if not name:
+            raise ValueError("display name is required")
+        if len(name) < 2:
+            raise ValueError("display name must be at least 2 characters")
+        if len(name) > 50:
+            raise ValueError("display name must be at most 50 characters")
+        return name
 
     @field_validator("password")
     @classmethod
@@ -97,6 +110,7 @@ def register(
         )
     user = User(
         email=payload.email,
+        display_name=payload.display_name,
         password_hash=hash_password(payload.password),
         role=UserRole.STUDENT,
     )
@@ -110,7 +124,11 @@ def register(
         route="/api/auth/register",
         result="created",
     )
-    return {"email": user.email, "role": user.role.value}
+    return {
+        "email": user.email,
+        "display_name": user.display_name,
+        "role": user.role.value,
+    }
 
 
 @router.post("/login")
@@ -186,7 +204,55 @@ def logout(
     return {"status": "ok"}
 
 
+class ProfileUpdateRequest(BaseModel):
+    display_name: str
+
+    @field_validator("display_name")
+    @classmethod
+    def validate_display_name(cls, value: str) -> str:
+        name = value.strip()
+        if not name:
+            raise ValueError("display name is required")
+        if len(name) < 2:
+            raise ValueError("display name must be at least 2 characters")
+        if len(name) > 50:
+            raise ValueError("display name must be at most 50 characters")
+        return name
+
+
 @router.get("/me")
 def get_me(user: User = Depends(get_current_user)) -> dict:
     """Return the current authenticated user's profile."""
-    return {"email": user.email, "role": user.role.value}
+    return {
+        "email": user.email,
+        "display_name": user.display_name,
+        "role": user.role.value,
+        "created_at": user.created_at.isoformat(),
+    }
+
+
+@router.patch("/me")
+def update_me(
+    payload: ProfileUpdateRequest,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> dict:
+    """Update the current user's profile. Only display_name is editable;
+    role, is_active, created_at, and user id can never be modified here."""
+    user.display_name = payload.display_name
+    db.commit()
+    db.refresh(user)
+    log_security(
+        "profile.update",
+        user_id=user.id,
+        route="/api/auth/me",
+        result="updated",
+    )
+    return {
+        "id": user.id,
+        "email": user.email,
+        "display_name": user.display_name,
+        "role": user.role.value,
+        "is_active": user.is_active,
+        "created_at": user.created_at.isoformat(),
+    }

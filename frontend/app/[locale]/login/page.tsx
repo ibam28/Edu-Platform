@@ -7,6 +7,7 @@ import { Text } from "@/components/ui/Text";
 import { Alert } from "@/components/ui/Alert";
 import { Card } from "@/components/ui/Card";
 import { LoginForm } from "@/components/auth/LoginForm";
+import { AuthRedirect } from "@/components/auth/AuthRedirect";
 
 export default async function LoginPage({
   params,
@@ -21,7 +22,11 @@ export default async function LoginPage({
   const login = t.login;
 
   return (
-    <div className="flex flex-col">
+    <AuthRedirect
+      redirectHref={`/${locale}/dashboard`}
+      copy={t.authGuard}
+    >
+      <div className="flex flex-col">
       <Container className="pt-8 sm:pt-12">
         <Alert variant="info" title={login.prototypeNotice.title}>
           {login.prototypeNotice.description}
@@ -47,7 +52,8 @@ export default async function LoginPage({
             />
           </Card>
         </Container>
-      </section>
-    </div>
+</section>
+      </div>
+    </AuthRedirect>
   );
 }

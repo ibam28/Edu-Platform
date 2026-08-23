@@ -7,6 +7,7 @@ import { Text } from "@/components/ui/Text";
 import { Alert } from "@/components/ui/Alert";
 import { Card } from "@/components/ui/Card";
 import { RegisterForm } from "@/components/auth/RegisterForm";
+import { AuthRedirect } from "@/components/auth/AuthRedirect";
 
 export default async function RegisterPage({
   params,
@@ -21,7 +22,11 @@ export default async function RegisterPage({
   const register = t.register;
 
   return (
-    <div className="flex flex-col">
+    <AuthRedirect
+      redirectHref={`/${locale}/dashboard`}
+      copy={t.authGuard}
+    >
+      <div className="flex flex-col">
       <Container className="pt-8 sm:pt-12">
         <Alert variant="info" title={register.prototypeNotice.title}>
           {register.prototypeNotice.description}
@@ -47,6 +52,7 @@ export default async function RegisterPage({
           </Card>
         </Container>
       </section>
-    </div>
+      </div>
+    </AuthRedirect>
   );
 }

@@ -12,7 +12,7 @@ VALID_PASSWORD = "secret-pass-1234"
 
 def register_user(client, email=VALID_EMAIL, password=VALID_PASSWORD):
     return client.post(
-        "/api/auth/register", json={"email": email, "password": password}
+        "/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": password}
     )
 
 
@@ -88,7 +88,7 @@ def test_login_wrong_password_returns_401(client):
 def test_login_unknown_user_returns_401(client):
     response = client.post(
         "/api/auth/login",
-        json={"email": "nobody@example.com", "password": VALID_PASSWORD},
+        json={"email": "nobody@example.com", "display_name": "Test Learner", "password": VALID_PASSWORD},
     )
     assert response.status_code == 401
 
@@ -124,6 +124,8 @@ def test_me_with_valid_token(client):
     assert response.status_code == 200
     assert response.json()["email"] == VALID_EMAIL
     assert response.json()["role"] == "student"
+    assert "created_at" in response.json()
+    assert response.json()["display_name"] == "Test Learner"
 
 
 def test_me_rejects_tampered_token(client):

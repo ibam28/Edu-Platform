@@ -20,14 +20,14 @@ def test_auth_events_are_logged(client, caplog):
     with caplog.at_level(logging.INFO):
         email = unique_email()
         response = client.post(
-            "/api/auth/register", json={"email": email, "password": VALID_PASSWORD}
+            "/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
         )
         assert response.status_code == 201
         client.post(
-            "/api/auth/login", json={"email": email, "password": VALID_PASSWORD}
+            "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
         )
         client.post(
-            "/api/auth/login", json={"email": email, "password": "wrong-password"}
+            "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": "wrong-password"}
         )
     events = [r.getMessage() for r in collect_records(caplog)]
     assert any("event=register.success" in line for line in events)
@@ -40,10 +40,10 @@ def test_no_sensitive_values_in_logs(client, caplog):
     with caplog.at_level(logging.INFO):
         email = unique_email()
         client.post(
-            "/api/auth/register", json={"email": email, "password": VALID_PASSWORD}
+            "/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
         )
         token = client.post(
-            "/api/auth/login", json={"email": email, "password": VALID_PASSWORD}
+            "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
         ).json()["access_token"]
         client.get("/api/auth/me", headers={"Authorization": f"Bearer {token}"})
         client.get("/api/auth/me", headers={"Authorization": f"Bearer {token}x"})
@@ -60,10 +60,10 @@ def test_logout_and_revocation_event_logged(client, caplog):
     with caplog.at_level(logging.INFO):
         email = unique_email()
         client.post(
-            "/api/auth/register", json={"email": email, "password": VALID_PASSWORD}
+            "/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
         )
         token = client.post(
-            "/api/auth/login", json={"email": email, "password": VALID_PASSWORD}
+            "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
         ).json()["access_token"]
         time.sleep(1.05)
         client.post("/api/auth/logout", headers={"Authorization": f"Bearer {token}"})
@@ -75,10 +75,10 @@ def test_authz_denied_event_logged(client, caplog):
     with caplog.at_level(logging.INFO):
         email = unique_email()
         client.post(
-            "/api/auth/register", json={"email": email, "password": VALID_PASSWORD}
+            "/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
         )
         token = client.post(
-            "/api/auth/login", json={"email": email, "password": VALID_PASSWORD}
+            "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
         ).json()["access_token"]
         client.get("/api/admin/overview", headers={"Authorization": f"Bearer {token}"})
     events = [r.getMessage() for r in collect_records(caplog)]

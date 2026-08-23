@@ -15,11 +15,11 @@ def unique_email():
 def register_and_login(client):
     email = unique_email()
     response = client.post(
-        "/api/auth/register", json={"email": email, "password": VALID_PASSWORD}
+        "/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
     )
     assert response.status_code == 201
     response = client.post(
-        "/api/auth/login", json={"email": email, "password": VALID_PASSWORD}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
     )
     return response.json()["access_token"], email
 
@@ -85,7 +85,7 @@ def test_admin_authorization_still_works(client):
 
     email = unique_email()
     client.post(
-        "/api/auth/register", json={"email": email, "password": VALID_PASSWORD}
+        "/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
     )
     with TestingSessionLocal() as db:
         db.execute(
@@ -93,7 +93,7 @@ def test_admin_authorization_still_works(client):
         )
         db.commit()
     token = client.post(
-        "/api/auth/login", json={"email": email, "password": VALID_PASSWORD}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
     ).json()["access_token"]
     response = client.get("/api/admin/overview", headers=auth_headers(token))
     assert response.status_code == 200
@@ -103,7 +103,7 @@ def test_admin_authorization_still_works(client):
     assert response.status_code == 401
     time.sleep(1.05)
     fresh_token = client.post(
-        "/api/auth/login", json={"email": email, "password": VALID_PASSWORD}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
     ).json()["access_token"]
     response = client.get("/api/admin/overview", headers=auth_headers(fresh_token))
     assert response.status_code == 200

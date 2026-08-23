@@ -34,23 +34,27 @@ Creates a new learner account. Implemented in M11. Passwords are hashed
 
 ```json
 {
+  "display_name": "Rifav47551",
   "email": "learner@example.com",
   "password": "secret1"
 }
 ```
+
+`display_name` is required: 2–50 characters after trimming whitespace.
 
 **Success response** (HTTP 201):
 
 ```json
 {
   "email": "learner@example.com",
+  "display_name": "Rifav47551",
   "role": "student"
 }
 ```
 
 **Error responses:**
 
-- `422` — validation failure (invalid email format, password shorter than 10 chars, SEC-006).
+- `422` — validation failure (invalid email format, password shorter than 10 chars (SEC-006), missing/short/oversized display name).
 - `409` — email already registered.
 - `429` — too many registration attempts from this IP (rate limited, SEC-003).
 - `5xx` — server error.
@@ -112,11 +116,45 @@ Returns the current authenticated user (Bearer token required).
 ```json
 {
   "email": "learner@example.com",
-  "role": "student"
+  "display_name": "Rifav47551",
+  "role": "student",
+  "created_at": "2026-01-15T10:30:00+00:00"
 }
 ```
 
+`created_at` (ISO-8601) is the account creation timestamp, used for
+"member since" display.
+
 **Errors:** `401` when missing, malformed, tampered, or expired token.
+
+### PATCH `/api/auth/me`
+
+Updates the current user's profile. Only `display_name` is editable; role,
+`is_active`, `created_at`, email, and user id can never be modified through
+this endpoint.
+
+**Request body:**
+
+```json
+{
+  "display_name": "Rifav"
+}
+```
+
+**Success response** (HTTP 200):
+
+```json
+{
+  "id": 42,
+  "email": "learner@example.com",
+  "display_name": "Rifav",
+  "role": "student",
+  "is_active": true,
+  "created_at": "2026-01-15T10:30:00+00:00"
+}
+```
+
+**Errors:** `401` unauthenticated; `422` empty/too short/oversized display name.
 
 ### GET `/api/admin/overview`
 

@@ -12,9 +12,9 @@ def unique_email():
 def register_and_login(client):
     """Register a user and return (token, email)."""
     email = unique_email()
-    client.post("/api/auth/register", json={"email": email, "password": "secret-pass-1234"})
+    client.post("/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": "secret-pass-1234"})
     response = client.post(
-        "/api/auth/login", json={"email": email, "password": "secret-pass-1234"}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": "secret-pass-1234"}
     )
     return response.json()["access_token"], email
 
@@ -66,7 +66,7 @@ def test_admin_overview_counts_users(client):
     # Register a second user
     client.post(
         "/api/auth/register",
-        json={"email": unique_email(), "password": "secret-pass-1234"},
+        json={"email": unique_email(), "display_name": "Test Learner", "password": "secret-pass-1234"},
     )
     data = client.get("/api/admin/overview", headers=auth_headers(token)).json()
     assert data["users"] >= 2
@@ -175,7 +175,7 @@ def test_admin_users_search_by_email(client):
     # Another user that should not match the search
     client.post(
         "/api/auth/register",
-        json={"email": unique_email(), "password": "secret-pass-1234"},
+        json={"email": unique_email(), "display_name": "Test Learner", "password": "secret-pass-1234"},
     )
     response = client.get(
         f"/api/admin/users?q={email}", headers=auth_headers(token)

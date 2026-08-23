@@ -19,9 +19,9 @@ def unique_email():
 
 def register_and_login(client):
     email = unique_email()
-    client.post("/api/auth/register", json={"email": email, "password": VALID_PASSWORD})
+    client.post("/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD})
     response = client.post(
-        "/api/auth/login", json={"email": email, "password": VALID_PASSWORD}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
     )
     assert response.status_code == 200
     return response.json()["access_token"]

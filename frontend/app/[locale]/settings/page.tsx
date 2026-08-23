@@ -3,9 +3,9 @@ import { isLocale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { Container } from "@/components/ui/Container";
 import { Alert } from "@/components/ui/Alert";
-import { DashboardClient } from "@/components/dashboard/DashboardClient";
+import { SettingsClient } from "@/components/settings/SettingsClient";
 
-export default async function DashboardPage({
+export default async function SettingsPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -19,16 +19,12 @@ export default async function DashboardPage({
   return (
     <div className="flex flex-col">
       <Container className="pt-8 sm:pt-12">
-        <Alert variant="info" title={t.dashboard.prototypeNotice.title}>
-          {t.dashboard.prototypeNotice.description}
+        <Alert variant="info" title={t.settings.prototypeNotice.title}>
+          {t.settings.prototypeNotice.description}
         </Alert>
       </Container>
 
-      <DashboardClient
-        copy={t.dashboard}
-        lessonItems={t.pythonStage0.lessons.items}
-        locale={locale}
-      />
+      <SettingsClient copy={t.settings} locale={locale} />
     </div>
   );
 }

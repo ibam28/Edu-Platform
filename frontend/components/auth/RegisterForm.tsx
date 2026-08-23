@@ -13,6 +13,10 @@ import {
 } from "@/components/auth/validation";
 
 export interface RegisterFormCopy {
+  displayName: {
+    label: string;
+    placeholder: string;
+  };
   email: {
     label: string;
     placeholder: string;
@@ -33,6 +37,9 @@ export interface RegisterFormCopy {
   successTitle: string;
   successDescription: string;
   errors: {
+    displayNameRequired: string;
+    displayNameMinLength: string;
+    displayNameMaxLength: string;
     emailRequired: string;
     emailInvalid: string;
     passwordRequired: string;
@@ -63,6 +70,7 @@ export function RegisterForm({
   loginPrompt,
 }: RegisterFormProps) {
   const [values, setValues] = useState<RegistrationValues>({
+    displayName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -91,7 +99,11 @@ export function RegisterForm({
       const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: values.email.trim(), password: values.password }),
+        body: JSON.stringify({
+          display_name: values.displayName.trim(),
+          email: values.email.trim(),
+          password: values.password,
+        }),
       });
       if (response.ok) {
         setStatus("success");
@@ -128,6 +140,16 @@ export function RegisterForm({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
+      <Input
+        label={copy.displayName.label}
+        placeholder={copy.displayName.placeholder}
+        autoComplete="name"
+        required
+        value={values.displayName}
+        onChange={(event) => handleChange("displayName", event.target.value)}
+        error={errors.displayName}
+        disabled={status === "loading"}
+      />
       <Input
         type="email"
         label={copy.email.label}

@@ -10,7 +10,7 @@
 
 ## Implemented Tables
 
-- `users` — id, email (unique), password_hash (PBKDF2), role
+- `users` — id, email (unique), display_name (2–50 chars, required), password_hash (PBKDF2), role
   (guest/student/admin), is_active, `tokens_valid_after` (token revocation,
   SEC-005), created_at.
 - `lesson_progress` — per-user Stage 0 lesson completion

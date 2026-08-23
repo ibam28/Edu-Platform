@@ -18,7 +18,7 @@ def unique_email():
 
 
 def register_payload(email=None, password=VALID_PASSWORD):
-    return {"email": email or unique_email(), "password": password}
+    return {"email": email or unique_email(), "display_name": "Test Learner", "password": password}
 
 
 # --- SEC-006: password policy boundaries ---
@@ -41,9 +41,9 @@ def test_register_rejects_short_password(client):
 
 def test_login_accepts_ten_char_password(client):
     email = unique_email()
-    client.post("/api/auth/register", json={"email": email, "password": "1234567890"})
+    client.post("/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": "1234567890"})
     response = client.post(
-        "/api/auth/login", json={"email": email, "password": "1234567890"}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": "1234567890"}
     )
     assert response.status_code == 200
     assert "access_token" in response.json()
@@ -70,10 +70,10 @@ def test_register_throttled_after_limit(client):
 
 def test_login_normal_requests_allowed(client):
     email = unique_email()
-    client.post("/api/auth/register", json={"email": email, "password": VALID_PASSWORD})
+    client.post("/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD})
     for _ in range(5):
         response = client.post(
-            "/api/auth/login", json={"email": email, "password": "wrong-password"}
+            "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": "wrong-password"}
         )
         assert response.status_code == 401
 
@@ -82,11 +82,11 @@ def test_login_throttled_by_ip(client):
     for _ in range(10):
         client.post(
             "/api/auth/login",
-            json={"email": unique_email(), "password": "wrong-password"},
+            json={"email": unique_email(), "display_name": "Test Learner", "password": "wrong-password"},
         )
     response = client.post(
         "/api/auth/login",
-        json={"email": unique_email(), "password": "wrong-password"},
+        json={"email": unique_email(), "display_name": "Test Learner", "password": "wrong-password"},
     )
     assert response.status_code == 429
 
@@ -98,10 +98,10 @@ def test_login_throttled_per_email(client):
     email = unique_email()
     for _ in range(5):
         client.post(
-            "/api/auth/login", json={"email": email, "password": "wrong-password"}
+            "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": "wrong-password"}
         )
     response = client.post(
-        "/api/auth/login", json={"email": email, "password": "wrong-password"}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": "wrong-password"}
     )
     assert response.status_code == 429
 
@@ -109,18 +109,18 @@ def test_login_throttled_per_email(client):
 def test_login_success_after_reset(client):
     """After the limiter is reset, a normal login is allowed again."""
     email = unique_email()
-    client.post("/api/auth/register", json={"email": email, "password": VALID_PASSWORD})
+    client.post("/api/auth/register", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD})
     for _ in range(5):
         client.post(
-            "/api/auth/login", json={"email": email, "password": "wrong-password"}
+            "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": "wrong-password"}
         )
     assert client.post(
-        "/api/auth/login", json={"email": email, "password": "wrong-password"}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": "wrong-password"}
     ).status_code == 429
     LOGIN_EMAIL_LIMITER.reset()
     LOGIN_IP_LIMITER.reset()
     REGISTER_IP_LIMITER.reset()
     response = client.post(
-        "/api/auth/login", json={"email": email, "password": VALID_PASSWORD}
+        "/api/auth/login", json={"email": email, "display_name": "Test Learner", "password": VALID_PASSWORD}
     )
     assert response.status_code == 200

@@ -375,6 +375,9 @@ export interface DemoAssessmentsCopy {
 }
 
 export interface RegisterFormErrorCopy {
+  displayNameRequired: string;
+  displayNameMinLength: string;
+  displayNameMaxLength: string;
   emailRequired: string;
   emailInvalid: string;
   passwordRequired: string;
@@ -393,6 +396,10 @@ export interface RegisterCopy {
     description: string;
   };
   form: {
+    displayName: {
+      label: string;
+      placeholder: string;
+    };
     email: {
       label: string;
       placeholder: string;
@@ -506,6 +513,64 @@ export interface DashboardCopy {
     errorDescription: string;
     logoutLabel: string;
     studentRole: string;
+  };
+  welcome: {
+    greeting: string;
+    continuePrompt: string;
+    studentLabel: string;
+  };
+  profileCard: {
+    title: string;
+    role: string;
+    memberSince: string;
+    accountStatus: string;
+    active: string;
+    editLabel: string;
+  };
+  continueLearning: {
+    title: string;
+    description: string;
+    currentLesson: string;
+    progress: string;
+    startLabel: string;
+    continueLabel: string;
+    noProgressTitle: string;
+    noProgressDescription: string;
+  };
+  progressOverview: {
+    title: string;
+    description: string;
+    lessonsCompleted: string;
+    currentStage: string;
+    overallLabel: string;
+    lastActivity: string;
+    never: string;
+  };
+  pathSnapshot: {
+    title: string;
+    description: string;
+    current: string;
+    available: string;
+    locked: string;
+    viewPath: string;
+  };
+  recentActivity: {
+    title: string;
+    description: string;
+    emptyTitle: string;
+    emptyDescription: string;
+  };
+  assessmentSummary: {
+    title: string;
+    description: string;
+    completed: string;
+    demoWarning: string;
+    viewLabel: string;
+  };
+  settingsSummary: {
+    title: string;
+    description: string;
+    manageLabel: string;
   };
 }
 
@@ -705,6 +770,55 @@ export interface ContactCopy {
   };
 }
 
+export interface SettingsCopy {
+  prototypeNotice: { title: string; description: string };
+  hero: { eyebrow: string; title: string; description: string };
+  tabs: { profile: string; security: string; preferences: string };
+  profile: {
+    title: string;
+    description: string;
+    displayName: { label: string; note: string };
+    email: { label: string; note: string };
+    notAvailable: string;
+    saveLabel: string;
+    saving: string;
+    saveSuccess: string;
+    saveError: string;
+    displayNameRequired: string;
+    displayNameMinLength: string;
+    displayNameMaxLength: string;
+  };
+  security: {
+    title: string;
+    description: string;
+    role: string;
+    memberSince: string;
+    sessionStatus: string;
+    sessionActive: string;
+  };
+  password: {
+    title: string;
+    description: string;
+    currentLabel: string;
+    newLabel: string;
+    confirmLabel: string;
+    notAvailable: string;
+  };
+  preferences: {
+    title: string;
+    description: string;
+    language: string;
+    idLabel: string;
+    enLabel: string;
+  };
+}
+
+export interface AuthGuardCopy {
+  checking: string;
+  networkErrorTitle: string;
+  networkErrorDescription: string;
+}
+
 export interface Dictionary {
   meta: {
     title: string;
@@ -715,7 +829,16 @@ export interface Dictionary {
   };
   skipLink: string;
   nav: Record<
-    "home" | "learningPath" | "vision" | "login" | "register",
+    | "home"
+    | "learningPath"
+    | "vision"
+    | "login"
+    | "register"
+    | "dashboard"
+    | "settings"
+    | "logout"
+    | "accountMenu"
+    | "greetingPrefix",
     string
   >;
   navAccessibility: {
@@ -758,6 +881,8 @@ export interface Dictionary {
   adminCourses: AdminCoursesCopy;
   adminAssessments: AdminAssessmentsCopy;
   contact: ContactCopy;
+  settings: SettingsCopy;
+  authGuard: AuthGuardCopy;
   privacy: {
     prototypeNotice: { title: string; description: string };
     hero: { eyebrow: string; title: string; description: string };
@@ -789,6 +914,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
       vision: "Visi",
       login: "Masuk",
       register: "Daftar",
+      dashboard: "Dasbor",
+      settings: "Pengaturan",
+      logout: "Keluar",
+      accountMenu: "Akun",
+      greetingPrefix: "Halo",
     },
     navAccessibility: {
       primaryLabel: "Navigasi utama",
@@ -1894,6 +2024,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
           "Daftar gratis dan mulailah perjalanan pemrograman Anda dengan Python.",
       },
       form: {
+        displayName: {
+          label: "Nama Tampilan",
+          placeholder: "Nama Anda",
+        },
         email: {
           label: "Email",
           placeholder: "nama@contoh.com",
@@ -1917,6 +2051,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
         successDescription:
           "Akun Anda berhasil dibuat. Silakan masuk untuk melanjutkan.",
         errors: {
+          displayNameRequired: "Nama tampilan wajib diisi.",
+          displayNameMinLength: "Nama tampilan minimal 2 karakter.",
+          displayNameMaxLength: "Nama tampilan maksimal 50 karakter.",
           emailRequired: "Email wajib diisi.",
           emailInvalid: "Format email tidak valid.",
           passwordRequired: "Kata sandi wajib diisi.",
@@ -2023,6 +2160,64 @@ export const dictionaries: Record<Locale, Dictionary> = {
           "Terjadi kesalahan saat memuat dasbor. Silakan coba lagi nanti.",
         logoutLabel: "Keluar",
         studentRole: "Siswa",
+      },
+      welcome: {
+        greeting: "Halo, {name}.",
+        continuePrompt: "Lanjutkan dari posisi terakhir Anda.",
+        studentLabel: "Siswa",
+      },
+      profileCard: {
+        title: "Profil",
+        role: "Peran",
+        memberSince: "Bergabung sejak",
+        accountStatus: "Status Akun",
+        active: "Aktif",
+        editLabel: "Edit Profil",
+      },
+      continueLearning: {
+        title: "Lanjutkan Belajar",
+        description: "Kembali ke pelajaran terakhir Anda di Stage 0.",
+        currentLesson: "Pelajaran saat ini",
+        progress: "Progres",
+        startLabel: "Mulai Belajar",
+        continueLabel: "Lanjutkan Belajar",
+        noProgressTitle: "Belum ada progres",
+        noProgressDescription: "Mulai pelajaran pertama Anda untuk memulai Stage 0.",
+      },
+      progressOverview: {
+        title: "Ringkasan Progres",
+        description: "Data progres nyata dari akun Anda.",
+        lessonsCompleted: "Pelajaran selesai",
+        currentStage: "Tahap saat ini",
+        overallLabel: "Progres keseluruhan",
+        lastActivity: "Aktivitas terakhir",
+        never: "Belum ada",
+      },
+      pathSnapshot: {
+        title: "Jalur Belajar Anda",
+        description: "Status lima tahap menuju karier.",
+        current: "Saat ini",
+        available: "Tersedia",
+        locked: "Terkunci",
+        viewPath: "Lihat Jalur Belajar",
+      },
+      recentActivity: {
+        title: "Aktivitas Terakhir",
+        description: "Pelajaran yang baru saja Anda selesaikan.",
+        emptyTitle: "Belum ada aktivitas",
+        emptyDescription: "Selesaikan pelajaran pertama Anda — aktivitas akan muncul di sini.",
+      },
+      assessmentSummary: {
+        title: "Demo Penilaian",
+        description: "Uji pemahaman Anda dengan kuis demo per tahap.",
+        completed: "Penilaian selesai",
+        demoWarning: "Semua penilaian adalah demo latihan — bukan ujian sertifikasi resmi.",
+        viewLabel: "Lihat Penilaian",
+      },
+      settingsSummary: {
+        title: "Pengaturan Akun",
+        description: "Kelola profil, keamanan, dan preferensi Anda.",
+        manageLabel: "Kelola Akun",
       },
     },
     adminDashboard: {
@@ -2312,6 +2507,76 @@ export const dictionaries: Record<Locale, Dictionary> = {
         },
       },
     },
+    settings: {
+      prototypeNotice: {
+        title: "Prototipe v0.0.1",
+        description:
+          "Halaman pengaturan ini adalah prototipe. Beberapa fitur (edit profil, ganti kata sandi) belum didukung backend dan ditandai secara jujur.",
+      },
+      hero: {
+        eyebrow: "Akun",
+        title: "Pengaturan Akun",
+        description:
+          "Kelola informasi profil, keamanan sesi, dan preferensi bahasa Anda.",
+      },
+      tabs: {
+        profile: "Profil",
+        security: "Keamanan",
+        preferences: "Preferensi",
+      },
+      profile: {
+        title: "Profil",
+        description:
+          "Informasi dasar akun Anda. Email bersifat read-only di prototipe ini.",
+        displayName: {
+          label: "Nama Tampilan",
+          note: "Pengeditan nama tampilan belum didukung backend prototipe ini.",
+        },
+        email: {
+          label: "Email",
+          note: "Perubahan email memerlukan verifikasi backend dan belum tersedia di prototipe ini.",
+        },
+        notAvailable: "Tidak tersedia di prototipe ini",
+        saveLabel: "Simpan Perubahan",
+        saving: "Menyimpan...",
+        saveSuccess: "Nama tampilan berhasil diperbarui.",
+        saveError: "Gagal menyimpan. Silakan coba lagi.",
+        displayNameRequired: "Nama tampilan wajib diisi.",
+        displayNameMinLength: "Nama tampilan minimal 2 karakter.",
+        displayNameMaxLength: "Nama tampilan maksimal 50 karakter.",
+      },
+      security: {
+        title: "Keamanan",
+        description:
+          "Status keamanan akun Anda. Data ditampilkan hanya jika benar-benar tersedia.",
+        role: "Peran",
+        memberSince: "Bergabung sejak",
+        sessionStatus: "Status Sesi",
+        sessionActive: "Aktif",
+      },
+      password: {
+        title: "Ganti Kata Sandi",
+        description: "Ganti kata sandi akun Anda secara aman.",
+        currentLabel: "Kata Sandi Saat Ini",
+        newLabel: "Kata Sandi Baru",
+        confirmLabel: "Konfirmasi Kata Sandi Baru",
+        notAvailable:
+          "Perubahan kata sandi belum didukung backend prototipe ini — akan tersedia pada rilis berikutnya.",
+      },
+      preferences: {
+        title: "Preferensi",
+        description: "Preferensi bahasa untuk antarmuka Anda.",
+        language: "Bahasa",
+        idLabel: "Indonesia",
+        enLabel: "English",
+      },
+    },
+    authGuard: {
+      checking: "Memeriksa sesi...",
+      networkErrorTitle: "Tidak dapat memverifikasi sesi",
+      networkErrorDescription:
+        "Kami tidak dapat memeriksa apakah sesi Anda masih valid karena masalah jaringan. Sesi Anda mungkin masih aktif — coba muat ulang atau masuk kembali.",
+    },
     privacy: {
       prototypeNotice: {
         title: "Prototipe v0.0.1",
@@ -2424,6 +2689,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
       vision: "Vision",
       login: "Login",
       register: "Register",
+      dashboard: "Dashboard",
+      settings: "Settings",
+      logout: "Log out",
+      accountMenu: "Account",
+      greetingPrefix: "Hi",
     },
     navAccessibility: {
       primaryLabel: "Primary navigation",
@@ -3529,6 +3799,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
           "Register for free and start your programming journey with Python.",
       },
       form: {
+        displayName: {
+          label: "Display Name",
+          placeholder: "Your name",
+        },
         email: {
           label: "Email",
           placeholder: "name@example.com",
@@ -3552,6 +3826,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
         successDescription:
           "Your account has been created. Please log in to continue.",
         errors: {
+          displayNameRequired: "Display name is required.",
+          displayNameMinLength: "Display name must be at least 2 characters.",
+          displayNameMaxLength: "Display name must be at most 50 characters.",
           emailRequired: "Email is required.",
           emailInvalid: "Email format is invalid.",
           passwordRequired: "Password is required.",
@@ -3656,6 +3933,64 @@ export const dictionaries: Record<Locale, Dictionary> = {
           "Something went wrong while loading your dashboard. Please try again later.",
         logoutLabel: "Log out",
         studentRole: "Student",
+      },
+      welcome: {
+        greeting: "Hi, {name}.",
+        continuePrompt: "Pick up where you left off.",
+        studentLabel: "Student",
+      },
+      profileCard: {
+        title: "Profile",
+        role: "Role",
+        memberSince: "Member since",
+        accountStatus: "Account Status",
+        active: "Active",
+        editLabel: "Edit Profile",
+      },
+      continueLearning: {
+        title: "Continue Learning",
+        description: "Return to your latest Stage 0 lesson.",
+        currentLesson: "Current lesson",
+        progress: "Progress",
+        startLabel: "Start Learning",
+        continueLabel: "Continue Learning",
+        noProgressTitle: "No progress yet",
+        noProgressDescription: "Start your first lesson to begin Stage 0.",
+      },
+      progressOverview: {
+        title: "Progress Overview",
+        description: "Real progress data from your account.",
+        lessonsCompleted: "Lessons completed",
+        currentStage: "Current stage",
+        overallLabel: "Overall progress",
+        lastActivity: "Last activity",
+        never: "None yet",
+      },
+      pathSnapshot: {
+        title: "Your Learning Path",
+        description: "Status of the five stages toward your career.",
+        current: "Current",
+        available: "Available",
+        locked: "Locked",
+        viewPath: "View Learning Path",
+      },
+      recentActivity: {
+        title: "Recent Activity",
+        description: "Lessons you have recently completed.",
+        emptyTitle: "No activity yet",
+        emptyDescription: "Complete your first lesson — activity will appear here.",
+      },
+      assessmentSummary: {
+        title: "Demo Assessments",
+        description: "Test your understanding with per-stage demo quizzes.",
+        completed: "Assessments completed",
+        demoWarning: "All assessments are practice demos — not official certification exams.",
+        viewLabel: "View Assessments",
+      },
+      settingsSummary: {
+        title: "Account Settings",
+        description: "Manage your profile, security, and preferences.",
+        manageLabel: "Manage Account",
       },
     },
     adminDashboard: {
@@ -3944,6 +4279,76 @@ export const dictionaries: Record<Locale, Dictionary> = {
           messageMinLength: "Message must be at least 10 characters.",
         },
       },
+    },
+    settings: {
+      prototypeNotice: {
+        title: "Prototype v0.0.1",
+        description:
+          "This settings page is a prototype. Some features (profile editing, password change) are not yet supported by the backend and are marked honestly.",
+      },
+      hero: {
+        eyebrow: "Account",
+        title: "Account Settings",
+        description:
+          "Manage your profile information, session security, and language preferences.",
+      },
+      tabs: {
+        profile: "Profile",
+        security: "Security",
+        preferences: "Preferences",
+      },
+      profile: {
+        title: "Profile",
+        description:
+          "Basic account information. Email is read-only in this prototype.",
+        displayName: {
+          label: "Display Name",
+          note: "Display name editing is not yet supported by this prototype backend.",
+        },
+        email: {
+          label: "Email",
+          note: "Changing your email requires backend verification and is not available in this prototype yet.",
+        },
+        notAvailable: "Not available in this prototype",
+        saveLabel: "Save Changes",
+        saving: "Saving...",
+        saveSuccess: "Display name updated successfully.",
+        saveError: "Failed to save. Please try again.",
+        displayNameRequired: "Display name is required.",
+        displayNameMinLength: "Display name must be at least 2 characters.",
+        displayNameMaxLength: "Display name must be at most 50 characters.",
+      },
+      security: {
+        title: "Security",
+        description:
+          "Your account security status. Data is shown only when actually available.",
+        role: "Role",
+        memberSince: "Member since",
+        sessionStatus: "Session Status",
+        sessionActive: "Active",
+      },
+      password: {
+        title: "Change Password",
+        description: "Change your account password securely.",
+        currentLabel: "Current Password",
+        newLabel: "New Password",
+        confirmLabel: "Confirm New Password",
+        notAvailable:
+          "Password change is not supported by this prototype backend yet — it will be available in a future release.",
+      },
+      preferences: {
+        title: "Preferences",
+        description: "Language preference for your interface.",
+        language: "Language",
+        idLabel: "Indonesian",
+        enLabel: "English",
+      },
+    },
+    authGuard: {
+      checking: "Checking session...",
+      networkErrorTitle: "Unable to verify session",
+      networkErrorDescription:
+        "We could not verify whether your session is still valid because of a network issue. Your session may still be active — try reloading or log in again.",
     },
     privacy: {
       prototypeNotice: {

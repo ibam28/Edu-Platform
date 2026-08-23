@@ -1,7 +1,11 @@
 // SEC-006: minimum password length raised from 6 to 10.
 export const MIN_PASSWORD_LENGTH = 10;
 
+export const MIN_DISPLAY_NAME_LENGTH = 2;
+export const MAX_DISPLAY_NAME_LENGTH = 50;
+
 export interface RegistrationValues {
+  displayName: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -10,6 +14,9 @@ export interface RegistrationValues {
 export type RegistrationErrors = Partial<Record<keyof RegistrationValues, string>>;
 
 export interface RegistrationErrorCopy {
+  displayNameRequired: string;
+  displayNameMinLength: string;
+  displayNameMaxLength: string;
   emailRequired: string;
   emailInvalid: string;
   passwordRequired: string;
@@ -23,7 +30,16 @@ export function validateRegistration(
   copy: RegistrationErrorCopy,
 ): RegistrationErrors {
   const errors: RegistrationErrors = {};
+  const displayName = values.displayName.trim();
   const email = values.email.trim();
+
+  if (!displayName) {
+    errors.displayName = copy.displayNameRequired;
+  } else if (displayName.length < MIN_DISPLAY_NAME_LENGTH) {
+    errors.displayName = copy.displayNameMinLength;
+  } else if (displayName.length > MAX_DISPLAY_NAME_LENGTH) {
+    errors.displayName = copy.displayNameMaxLength;
+  }
 
   if (!email) {
     errors.email = copy.emailRequired;
