@@ -1,0 +1,41 @@
+# Roadmap
+
+> Status: Skeleton. Definitive roadmap from the master task.
+
+## Master Roadmap
+
+```
+Prototype v0.0.1 -> Validation -> Funding -> Commercial MVP
+  -> Certification + Talent + Recruitment
+```
+
+## Milestones
+
+### M00 - Project Foundation (CURRENT)
+
+Clean, reproducible technical foundation:
+
+- Repository structure: `frontend/`, `backend/`, `docs/`.
+- Next.js + React + TypeScript + Tailwind CSS frontend.
+- Python + FastAPI backend.
+- PostgreSQL + SQLAlchemy + migration-ready setup.
+- Docker Compose for frontend / backend / postgres.
+- `/api/health` returning `{"status":"ok"}`.
+- `.env.example` and secure `.gitignore`.
+- Root README with only currently implemented capabilities.
+- Initial documentation skeletons.
+- Git-friendly structure and local development instructions.
+
+Out of scope for M00: home page, navbar, auth, dashboards, courses, lessons,
+assessments, payments, certification, recruitment, AI, sandbox, microservices,
+Kubernetes.
+
+### M01 - (Recommended next milestone, NOT started)
+
+Likely: minimal frontend shell and user-facing bilingual home page wired to the
+backend. This is a recommendation only and is not executed as part of M00.
+
+### Future Milestones
+
+Validation, funding, commercial MVP, certification, talent, recruitment. Detailed
+definitions will be written when each milestone is scheduled.

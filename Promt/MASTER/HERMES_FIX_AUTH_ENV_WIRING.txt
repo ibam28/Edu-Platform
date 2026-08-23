@@ -1,0 +1,176 @@
+HERMES — FIX AUTH SECRET ENVIRONMENT WIRING
+
+Project:
+"/home/alsa/Dokumen/00 Projek Serius/workspace"
+
+MODE:
+CONTROLLED FIX
+
+TUJUAN:
+Memperbaiki masalah environment wiring pada M11 Authentication Backend.
+
+Masalah ditemukan:
+- Host `.env` sudah berisi AUTH_SECRET_KEY random yang aman.
+- Backend container masih menggunakan AUTH_SECRET_KEY hardcoded dari docker-compose.yml:
+  "dev-only-secret-change-me"
+- Docker belum membaca `.env` host untuk service backend.
+
+TARGET:
+Backend container harus menggunakan AUTH_SECRET_KEY dari `.env` host.
+
+==================================================
+IMPORTANT SCOPE
+==================================================
+
+BOLEH:
+- mengubah docker-compose.yml
+- mengubah konfigurasi environment
+- recreate container backend
+
+DILARANG:
+- mengubah authentication logic
+- mengubah hashing
+- mengubah token format
+- mengubah API auth
+- mengubah database schema
+- mengubah frontend
+- membuat fitur baru
+- menghapus file
+- git commit/push
+
+==================================================
+BEFORE CHANGE
+==================================================
+
+Periksa:
+
+1. docker-compose.yml
+2. .env
+3. backend/app/core/config.py
+
+Pastikan memahami konfigurasi saat ini.
+
+==================================================
+IMPLEMENTATION
+==================================================
+
+Tujuan konfigurasi:
+
+Gunakan satu sumber environment:
+
+workspace/.env
+
+
+Ubah docker-compose.yml agar backend membaca:
+
+AUTH_SECRET_KEY
+AUTH_TOKEN_EXPIRY_MINUTES
+
+
+Gunakan metode Docker Compose yang paling sesuai:
+
+Pilihan utama:
+
+environment:
+  AUTH_SECRET_KEY: ${AUTH_SECRET_KEY}
+  AUTH_TOKEN_EXPIRY_MINUTES: ${AUTH_TOKEN_EXPIRY_MINUTES}
+
+atau metode setara yang aman.
+
+Jangan memasukkan secret asli langsung ke docker-compose.yml.
+
+Jangan hardcode secret baru.
+
+==================================================
+RECREATE SERVICE
+==================================================
+
+Setelah perubahan:
+
+Recreate backend container agar environment baru aktif.
+
+Boleh:
+
+docker compose up -d --force-recreate backend
+
+atau command setara.
+
+Jangan rebuild seluruh stack jika tidak diperlukan.
+
+==================================================
+VERIFY
+==================================================
+
+Verifikasi:
+
+1. Backend container healthy.
+
+2. Backend membaca AUTH_SECRET_KEY dari environment.
+
+3. Nilai bukan:
+dev-only-secret-change-me
+
+4. AUTH_TOKEN_EXPIRY_MINUTES tetap:
+10080
+
+5. Endpoint:
+
+/api/health
+
+tetap HTTP 200.
+
+6. Tidak ada error startup.
+
+==================================================
+SECURITY CHECK
+==================================================
+
+Pastikan:
+
+- .env tetap tidak masuk git
+- secret tidak muncul di docker-compose.yml
+- secret tidak muncul di log
+- secret tidak ditampilkan pada report
+
+Saat melaporkan:
+Tampilkan hanya:
+
+AUTH_SECRET_KEY:
+CONFIGURED
+
+Jangan tampilkan nilai secret.
+
+==================================================
+FINAL REPORT
+==================================================
+
+HERMES AUTH ENV WIRING FIX REPORT
+
+Changes:
+-
+
+Docker configuration:
+PASS / FAIL
+
+Backend environment:
+PASS / FAIL
+
+Health:
+PASS / FAIL
+
+Security:
+PASS / FAIL
+
+Files changed:
+-
+
+Issues:
+-
+
+FINAL STATUS:
+
+PASS
+atau
+FAIL
+
+STOP.

@@ -1,0 +1,172 @@
+KILO CODE — SKILL USAGE POLICY
+
+PROJECT:
+Bilingual Programming Education, Certification & Talent Platform
+
+
+==================================================
+PURPOSE
+==================================================
+
+Gunakan skills secara efisien.
+
+Jangan memuat atau menggunakan seluruh skill yang tersedia.
+
+Gunakan skill minimum yang diperlukan berdasarkan milestone.
+
+
+==================================================
+ACTIVE DEVELOPMENT SKILLS
+==================================================
+
+Prioritas utama:
+
+1. Software Development Skills
+
+Gunakan untuk:
+
+- implementasi fitur
+- architecture
+- code quality
+- refactoring yang diminta
+
+
+2. Testing Skills
+
+Gunakan untuk:
+
+- unit test
+- integration test
+- regression check
+
+
+3. Debugging Skills
+
+Gunakan untuk:
+
+- build error
+- runtime error
+- API error
+- database error
+
+
+4. Security Skills
+
+Gunakan untuk:
+
+- authentication
+- authorization
+- password
+- secret management
+- security review
+
+
+==================================================
+DOMAIN SKILL RULE
+==================================================
+
+Gunakan skill sesuai teknologi project.
+
+
+Current project:
+
+Frontend:
+- Next.js
+- React
+- TypeScript
+- Tailwind
+
+
+Backend:
+- FastAPI
+- Python
+- SQLAlchemy
+- PostgreSQL
+
+
+Infrastructure:
+- Docker Compose
+
+
+Jangan gunakan:
+
+- Laravel skills
+- PHP framework skills
+- unrelated framework skills
+
+
+kecuali project berubah.
+
+
+==================================================
+DO NOT LOAD UNNECESSARY SKILLS
+==================================================
+
+Jangan menggunakan:
+
+- social media skills
+- email automation skills
+- smart home skills
+- media processing skills
+- unrelated AI operation skills
+
+jika milestone tidak membutuhkan.
+
+
+==================================================
+IMPLEMENTATION RULE
+==================================================
+
+Sebelum menggunakan skill:
+
+1. Identifikasi milestone.
+2. Identifikasi kebutuhan.
+3. Gunakan skill paling relevan.
+4. Jangan menjalankan workflow tambahan tanpa alasan.
+
+
+==================================================
+PROJECT RULES
+==================================================
+
+Skill tidak boleh menggantikan:
+
+- PROJECT_MASTER_BLUEPRINT.md
+- PRD
+- Architecture documentation
+- Security documentation
+- Milestone prompt
+
+
+Jika terjadi konflik:
+
+Priority:
+
+1. User instruction
+2. Milestone prompt
+3. Project documentation
+4. This skill policy
+
+
+==================================================
+REPORTING
+==================================================
+
+Setelah milestone selesai:
+
+Laporkan:
+
+Skills used:
+-
+
+Reason:
+-
+
+Skills not used:
+-
+
+Reason:
+-
+
+
+STOP.

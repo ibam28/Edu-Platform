@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens — see docs/UI_UX_DESIGN_SYSTEM.md.
+ * Visual language: professional, modern, education/technology oriented.
+ * Bilingual support: Latin script only (Indonesian + English), system font stack.
+ */
+
+:root {
+  /* Backgrounds & surfaces */
+  --background: #ffffff;
+  --background-muted: #f8fafc;
+  --background-subtle: #f1f5f9;
+  --surface: #ffffff;
+
+  /* Foreground & text */
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --subtle: #94a3b8;
+
+  /* Brand (education/technology blue) */
+  --primary-50: #eef4ff;
+  --primary-100: #dbe6ff;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-on-tint: #1d4ed8;
+
+  /* Accent (certification / talent highlight) */
+  --accent-500: #7c3aed;
+  --accent-600: #6d28d9;
+  --accent-on-tint: #6d28d9;
+
+  /* Semantic */
+  --success: #16a34a;
+  --success-100: #dcfce7;
+  --success-700: #166534;
+  --warning: #d97706;
+  --warning-100: #fef3c7;
+  --warning-700: #92400e;
+  --danger: #dc2626;
+  --danger-100: #fee2e2;
+  --danger-700: #b91c1c;
+  --info: #0284c7;
+  --info-100: #e0f2fe;
+  --info-700: #0369a1;
+
+  /* Lines & focus */
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --ring: rgba(37, 99, 235, 0.4);
+
+  /* Typography */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    monospace;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.12);
+
+  /* Layout & motion */
+  --container-max: 80rem;
+  --transition-fast: 150ms;
+  --transition-base: 200ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b1120;
+    --background-muted: #0f172a;
+    --background-subtle: #1e293b;
+    --surface: #111a2e;
+
+    --foreground: #f1f5f9;
+    --muted: #94a3b8;
+    --subtle: #64748b;
+
+    --primary-50: #1e293b;
+    --primary-100: #1e3a5f;
+    --primary-500: #60a5fa;
+    --primary-600: #2563eb;
+    --primary-700: #1d4ed8;
+    --primary-on-tint: #93c5fd;
+
+    --accent-500: #a78bfa;
+    --accent-600: #8b5cf6;
+    --accent-on-tint: #c4b5fd;
+
+    --success: #22c55e;
+    --success-100: #052e16;
+    --success-700: #4ade80;
+    --warning: #f59e0b;
+    --warning-100: #451a03;
+    --warning-700: #fbbf24;
+    --danger: #dc2626;
+    --danger-100: #450a0a;
+    --danger-700: #f87171;
+    --info: #38bdf8;
+    --info-100: #082f49;
+    --info-700: #7dd3fc;
+
+    --border: #1e293b;
+    --border-strong: #334155;
+    --ring: rgba(59, 130, 246, 0.4);
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.55);
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+}
+
+/* Homepage hero micro-animations (visual redesign).
+   Guarded by prefers-reduced-motion: no animation for users who opt out. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out both;
+  }
+  .animate-float {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float-slow 7s ease-in-out 1.2s infinite;
+  }
+}

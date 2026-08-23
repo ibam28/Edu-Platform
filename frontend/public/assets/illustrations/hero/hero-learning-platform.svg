@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- hero-learning-platform.svg — original illustration (no text, theme-neutral palette) -->
+
+  <!-- pathway nodes behind the composition -->
+  <g stroke="#94a3b8" stroke-opacity="0.35" stroke-width="2">
+    <path d="M40 120 h90" stroke-dasharray="2 8"/>
+    <path d="M590 120 h90" stroke-dasharray="2 8"/>
+    <path d="M40 440 h90" stroke-dasharray="2 8"/>
+    <path d="M590 440 h90" stroke-dasharray="2 8"/>
+  </g>
+  <g fill="#2563eb">
+    <circle cx="36" cy="120" r="6"/>
+    <circle cx="684" cy="120" r="6"/>
+    <circle cx="36" cy="440" r="6"/>
+    <circle cx="684" cy="440" r="6"/>
+  </g>
+
+  <!-- dotted connector between panels -->
+  <g stroke="#6d28d9" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="1 9">
+    <path d="M470 150 q60 40 -20 70"/>
+    <path d="M250 470 q-70 30 -40 -60"/>
+  </g>
+
+  <!-- MAIN PANEL: learning progress dashboard -->
+  <g>
+    <rect x="140" y="70" width="440" height="360" rx="18" fill="rgba(15,23,42,0.04)" stroke="#94a3b8"/>
+    <!-- window header -->
+    <rect x="140" y="70" width="440" height="52" rx="18" fill="rgba(15,23,42,0.06)"/>
+    <circle cx="168" cy="96" r="6" fill="#dc2626"/>
+    <circle cx="192" cy="96" r="6" fill="#d97706"/>
+    <circle cx="216" cy="96" r="6" fill="#16a34a"/>
+    <rect x="300" y="88" width="120" height="16" rx="8" fill="rgba(15,23,42,0.18)"/>
+    <!-- title bars -->
+    <rect x="176" y="152" width="180" height="14" rx="7" fill="#2563eb"/>
+    <rect x="176" y="178" width="240" height="10" rx="5" fill="rgba(15,23,42,0.16)"/>
+    <rect x="176" y="196" width="200" height="10" rx="5" fill="rgba(15,23,42,0.12)"/>
+    <!-- progress card -->
+    <rect x="176" y="232" width="368" height="92" rx="12" fill="rgba(255,255,255,0.5)" stroke="#cbd5e1"/>
+    <rect x="196" y="248" width="90" height="12" rx="6" fill="rgba(15,23,42,0.18)"/>
+    <!-- progress track + fill -->
+    <rect x="196" y="274" width="328" height="10" rx="5" fill="rgba(15,23,42,0.08)"/>
+    <rect x="196" y="274" width="140" height="10" rx="5" fill="#2563eb"/>
+    <rect x="196" y="298" width="150" height="10" rx="5" fill="rgba(15,23,42,0.12)"/>
+    <!-- code block -->
+    <rect x="176" y="344" width="368" height="64" rx="10" fill="rgba(15,23,42,0.07)"/>
+    <g stroke="#94a3b8" stroke-width="2">
+      <path d="M196 364 h40"/><path d="M196 380 h60"/><path d="M196 396 h32"/>
+    </g>
+    <g fill="#16a34a">
+      <circle cx="524" cy="376" r="4"/>
+      <circle cx="540" cy="376" r="4"/>
+      <circle cx="556" cy="376" r="4"/>
+    </g>
+  </g>
+
+  <!-- FLOATING PANEL: python lesson (top-right) -->
+  <g>
+    <rect x="520" y="150" width="150" height="120" rx="14" fill="rgba(255,255,255,0.75)" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="538" y="168" width="80" height="12" rx="6" fill="#6d28d9"/>
+    <rect x="538" y="190" width="114" height="8" rx="4" fill="rgba(15,23,42,0.14)"/>
+    <rect x="538" y="206" width="96" height="8" rx="4" fill="rgba(15,23,42,0.10)"/>
+    <g stroke="#94a3b8" stroke-width="2">
+      <path d="M538 240 l10 8 -10 8"/>
+      <path d="M560 256 h24"/>
+    </g>
+  </g>
+
+  <!-- FLOATING PANEL: verified skill (top-left) -->
+  <g>
+    <circle cx="112" cy="190" r="44" fill="rgba(255,255,255,0.75)" stroke="#16a34a" stroke-width="2"/>
+    <path d="M92 190 l14 14 26 -28" stroke="#16a34a" stroke-width="4"/>
+  </g>
+
+  <!-- FLOATING PANEL: demo assessment (bottom-left) -->
+  <g>
+    <rect x="56" y="360" width="150" height="104" rx="14" fill="rgba(255,255,255,0.75)" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="74" y="378" width="72" height="12" rx="6" fill="#d97706"/>
+    <rect x="74" y="400" width="114" height="8" rx="4" fill="rgba(15,23,42,0.14)"/>
+    <circle cx="90" cy="430" r="8" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="120" cy="430" r="8" stroke="rgba(15,23,42,0.18)" stroke-width="2"/>
+    <circle cx="150" cy="430" r="8" stroke="rgba(15,23,42,0.18)" stroke-width="2"/>
+  </g>
+
+  <!-- FLOATING PANEL: career readiness (bottom-right) -->
+  <g>
+    <rect x="512" y="400" width="168" height="110" rx="14" fill="rgba(255,255,255,0.75)" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="530" y="418" width="96" height="12" rx="6" fill="#2563eb"/>
+    <g stroke="#94a3b8" stroke-width="2">
+      <path d="M530 448 h132"/>
+      <path d="M530 448 v-16 a8 8 0 0 1 8 -8 h40 a8 8 0 0 1 8 8 v16"/>
+    </g>
+    <circle cx="556" cy="474" r="7" fill="#16a34a"/>
+    <circle cx="596" cy="474" r="7" fill="rgba(15,23,42,0.16)"/>
+    <circle cx="636" cy="474" r="7" fill="rgba(15,23,42,0.16)"/>
+  </g>
+
+  <!-- code symbols decoration -->
+  <g stroke="#94a3b8" stroke-opacity="0.6" stroke-width="3">
+    <path d="M80 250 l-14 12 14 12"/>
+    <path d="M104 274 l14 -12 -14 -12"/>
+    <path d="M620 320 l14 12 -14 12"/>
+    <path d="M596 344 l-14 -12 14 -12"/>
+  </g>
+</svg>

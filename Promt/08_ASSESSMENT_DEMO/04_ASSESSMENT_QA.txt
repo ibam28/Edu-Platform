@@ -1,0 +1,41 @@
+PROTOTYPE v0.0.1 — 08_ASSESSMENT_DEMO
+
+GLOBAL AI CODING RULES
+----------------------
+- You are modifying an existing prototype repository.
+- Read ONLY the documents and files listed in this prompt.
+- Do not recursively read the whole repository unless required.
+- Do not read unrelated documentation.
+- Do not implement future features.
+- Do not redesign architecture without explicit approval.
+- Reuse existing components and design tokens.
+- Preserve Indonesian/English localization.
+- Never hardcode secrets.
+- Do not add unnecessary dependencies.
+- Preserve working behavior.
+- Test the change relevant to this prompt.
+- Report files changed, commands run, tests, known limitations, and next step.
+- STOP after this prompt. Do not automatically execute later prompts.
+
+MILESTONE PROMPT
+----------------
+TASK: QA the entire demo assessment flow.
+
+READ:
+- docs/PROTOTYPE_PRD.md
+- docs/AI_CODING_RULES.md
+
+DO:
+- Test Stage 1–4 demos.
+- Test validation, submit, result, localization, refresh/navigation behavior.
+- Fix only assessment-demo problems.
+
+EXECUTION DISCIPLINE
+--------------------
+- Work only on this prompt.
+- Before editing, inspect the listed relevant files.
+- After editing, run the smallest relevant verification.
+- If something is missing from the repository, make the minimum change needed.
+- Do not silently redesign unrelated code.
+- If blocked, report the blocker instead of inventing architecture.
+- Do not proceed to the next prompt automatically.

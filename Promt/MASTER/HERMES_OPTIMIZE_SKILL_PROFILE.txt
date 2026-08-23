@@ -1,0 +1,185 @@
+HERMES — OPTIMIZE ACTIVE SKILL PROFILE
+
+TUJUAN:
+
+Membatasi skill aktif agar Hermes lebih fokus, hemat context, dan menggunakan hanya skill yang relevan.
+
+
+MODE:
+
+CONFIGURATION REVIEW
+
+
+==================================================
+CORE PRINCIPLE
+==================================================
+
+Jangan aktifkan seluruh skill.
+
+Gunakan:
+
+ACTIVE:
+Skill yang berguna hampir setiap hari.
+
+ON DEMAND:
+Skill yang hanya digunakan pada kondisi tertentu.
+
+
+==================================================
+ACTIVE SKILLS
+==================================================
+
+Pertahankan aktif:
+
+1. docker-compose-dev-supervisor
+
+Alasan:
+- Docker Compose project
+- server lifecycle
+- container health check
+- environment verification
+
+
+2. systematic-debugging
+
+Alasan:
+- root cause analysis
+- error investigation
+- debugging workflow
+
+
+3. diagnosing-bugs
+
+Alasan:
+- runtime issue
+- performance issue
+- log analysis
+
+
+4. python-debugpy
+
+Alasan:
+- Python backend
+- FastAPI debugging
+- runtime inspection
+
+
+5. linux-port-shutdown
+
+Alasan:
+- port conflict
+- local service inspection
+
+
+==================================================
+ON DEMAND SKILLS
+==================================================
+
+Jangan aktif default.
+
+Kategori:
+
+GITHUB:
+- github-pr-workflow
+- github-issues
+- github-code-review
+
+Aktif hanya jika:
+- project memakai GitHub
+- membuat PR
+- code review
+
+
+DEPLOYMENT:
+- cloud
+- production deployment
+- hardening
+
+Aktif hanya saat:
+- deploy production
+
+
+SECURITY:
+- security audit tools
+
+Aktif hanya saat:
+- security review
+- penetration testing
+
+
+CREATIVE:
+- UI design
+- media
+- branding
+
+Aktif hanya saat:
+- design task
+
+
+ML/AI OPS:
+- mlops
+- model serving
+
+Aktif hanya saat:
+- AI infrastructure task
+
+
+==================================================
+DISABLE FROM DEFAULT
+==================================================
+
+Jangan gunakan default:
+
+- Laravel skills
+- PHP framework skills
+- social media skills
+- email skills
+- smart home skills
+- media processing skills
+- unrelated productivity skills
+
+
+==================================================
+RULES
+==================================================
+
+Sebelum memakai skill:
+
+1. Identifikasi task.
+2. Cari skill paling relevan.
+3. Gunakan skill minimum yang diperlukan.
+
+Jangan:
+
+- load semua skill sekaligus
+- menggunakan skill hanya karena tersedia
+- menjalankan workflow yang tidak diperlukan
+
+
+==================================================
+REPORT
+==================================================
+
+Buat laporan:
+
+Current active skills:
+
+-
+
+Moved to on-demand:
+
+-
+
+Disabled from default:
+
+-
+
+Reason:
+
+-
+
+FINAL STATUS:
+
+OPTIMIZED
+
+STOP.
